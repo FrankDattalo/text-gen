@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+    <head>
+    </head>
+    <body>
+        <div id="main">
+        </div>
+        <link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet"> 
+        <style>
+            #main {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                background: #ffeaea;
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                font-family: 'Indie Flower', cursive;
+                font-weight: 600;
+                font-size: 200%;
+                padding: 50px;
+                text-align: center;
+                color: #3f3f3f;
+            }
+        </style>
+        <script>
+            function randomChoice(items) {
+                var index = Math.floor(Math.random() * items.length);
+                return items[index];
+            }
+
+            function genText() {
+                var numWords = randomChoice([7, 14]);
+                var words = randomChoice([
+                    ['Emmie', 'Dabie', 'Babie', 'Bootie', 
+                     'Cutie', 'Snootie', 'Fruity', 'Tootie', 'Dootie'],
+
+                    ['Emmy', 'Daby', 'Baby', 'Broccoli', 'Booty',
+                     'Snooty', 'Fruity', 'Tooty', 'Dooty'],
+
+                    ['Emma', 'Dabe', 'Babe', 'Boot', 
+                     'Snoot', 'Fruit', 'Toot', 'Doot']
+                ]);
+
+                var ret = '';
+
+                for (var i = 0; i < numWords; i++) {
+                    var word = randomChoice(words);
+                    if (i == numWords - 1) {
+                        ret += word.toUpperCase();
+                    } else {
+                        ret += word;
+                        ret += ' ';
+                    }
+                }
+
+                ret += randomChoice(['!', '']);
+
+                return ret;
+            }
+
+            var div = document.getElementById('main');
+            div.innerText = genText();
+        </script>
+    </body>
+</html>
